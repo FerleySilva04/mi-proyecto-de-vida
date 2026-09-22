@@ -1,6 +1,13 @@
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import AboutMe from "./sections/AboutMe";
+import Values from "./sections/Values";
+import Future from "./sections/Future";
+import Historia from "./sections/Historia";
+import Goals from "./sections/Goals";
+import Plan from "./sections/Plan";
+import Vision from "./sections/Vision";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -9,23 +16,23 @@ function App() {
 
       <main>
         <Hero />
+
         <AboutMe />
 
-        <section id="valores" className="placeholder-section">
-          <span>02 — Mis valores</span>
-          <h2>Próximamente...</h2>
-        </section>
+        <Values />
 
-        <section id="futuro" className="placeholder-section">
-          <span>03 — Mi futuro</span>
-          <h2>Próximamente...</h2>
-        </section>
+        <Future />
 
-        <section id="historia" className="placeholder-section">
-          <span>04 — Mi historia</span>
-          <h2>Próximamente...</h2>
-        </section>
+        <Historia />
+
+        <Goals />
+
+        <Plan />
+
+        <Vision />
       </main>
+
+      <Footer />
     </div>
   );
 }

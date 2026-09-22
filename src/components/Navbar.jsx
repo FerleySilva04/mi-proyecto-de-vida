@@ -38,6 +38,24 @@ function Navbar() {
       icon: BookOpen,
       href: "#historia",
     },
+
+    {
+      name: "Mis metas",
+      icon: Target,
+      href: "#metas",
+    },
+
+    {
+      name: "Mi plan",
+      icon: Target,
+      href: "#plan",
+    },
+
+    {
+      name: "Mi visión",
+      icon: Sparkles,
+      href: "#vision",
+    },
   ];
 
   return (

@@ -35,8 +35,9 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Un viaje para descubrir quién soy, qué quiero lograr
-          y cómo convertir mis sueños en metas.
+          Soy Adriana Jiménez, tengo 18 años y estoy construyendo
+          mi camino con sueños, metas y muchas ganas de aprender
+          y crecer.
         </motion.p>
 
         <motion.div

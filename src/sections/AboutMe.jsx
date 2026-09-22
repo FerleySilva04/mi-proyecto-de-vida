@@ -1,7 +1,7 @@
 import {
-  Brain,
   Heart,
   Lightbulb,
+  Brain,
   Star,
 } from "lucide-react";
 
@@ -10,52 +10,72 @@ function AboutMe() {
     {
       icon: Heart,
       title: "Empatía",
-      description: "Me importa comprender y ayudar a las personas que me rodean.",
+      description:
+        "Me gusta comprender a las personas y brindar apoyo cuando alguien lo necesita.",
     },
     {
       icon: Lightbulb,
       title: "Creatividad",
-      description: "Me gusta encontrar nuevas formas de resolver problemas.",
+      description:
+        "Disfruto expresar mis ideas y buscar nuevas formas de hacer las cosas.",
     },
     {
       icon: Brain,
       title: "Aprendizaje",
-      description: "Disfruto descubrir cosas nuevas y seguir creciendo.",
+      description:
+        "Me gusta aprender cosas nuevas y descubrir habilidades que me ayuden a crecer.",
     },
     {
       icon: Star,
-      title: "Perseverancia",
-      description: "Cuando tengo una meta, intento encontrar la manera de alcanzarla.",
+      title: "Responsabilidad",
+      description:
+        "Cuando tengo un objetivo, trato de comprometerme y dar lo mejor de mí.",
     },
   ];
 
   return (
     <section id="quien-soy" className="section about-section">
       <div className="section-heading">
-        <span className="section-label">01 — Autoconocimiento</span>
+        <span className="section-label">
+          01 — Autoconocimiento
+        </span>
 
         <h2>
           ¿Quién <span>soy?</span>
         </h2>
 
         <p>
-          Antes de decidir hacia dónde voy, quiero conocer mejor
-          quién soy, qué me caracteriza y qué quiero mejorar.
+          Conocerme a mí misma es el primer paso para descubrir
+          qué quiero lograr y hacia dónde quiero dirigir mi futuro.
         </p>
       </div>
 
       <div className="about-grid">
         <div className="about-profile">
           <div className="profile-placeholder">
-            <span>Tu foto</span>
+            <div className="profile-initial">A</div>
+
+            <span>Adriana Jiménez</span>
           </div>
 
-          <h3>Mi historia</h3>
+          <h3>Esta soy yo</h3>
 
           <p>
-            Aquí aparecerá una pequeña presentación personal:
-            quién soy, de dónde vengo, qué me gusta y qué sueños
-            tengo para mi futuro.
+            Soy Adriana Jiménez, tengo 18 años y vivo en San Juan
+            Nepomuceno, Bolívar. Me considero una persona
+            expresiva, divertida y responsable.
+          </p>
+
+          <p className="about-extra">
+            Me gusta compartir con mi familia y amigos, escuchar
+            música, aprender cosas nuevas y conocer diferentes
+            lugares.
+          </p>
+
+          <p className="about-extra">
+            Para mi futuro me interesan diferentes caminos
+            profesionales. Entre ellos están ser profesora,
+            enfermera y también participar en la política.
           </p>
         </div>
 
@@ -64,7 +84,10 @@ function AboutMe() {
             const Icon = strength.icon;
 
             return (
-              <article className="strength-card" key={strength.title}>
+              <article
+                className="strength-card"
+                key={strength.title}
+              >
                 <div className="strength-icon">
                   <Icon size={22} />
                 </div>
