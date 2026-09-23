@@ -1,151 +1,196 @@
 import { motion } from "framer-motion";
 import {
-  GraduationCap,
-  BookOpen,
-  Briefcase,
   Home,
+  Briefcase,
   Heart,
+  Plane,
   Sparkles,
+  Mail,
 } from "lucide-react";
 
 function Future() {
-  const timeline = [
-    {
-      year: "2026",
-      icon: GraduationCap,
-      title: "Un nuevo comienzo",
-      description:
-        "Terminar mi etapa escolar y comenzar a prepararme para la carrera profesional que quiero construir.",
-    },
-    {
-      year: "2027",
-      icon: BookOpen,
-      title: "Aprender y crecer",
-      description:
-        "Avanzar en mis estudios, descubrir nuevas habilidades y conocer mejor mis intereses profesionales.",
-    },
-    {
-      year: "2028",
-      icon: Sparkles,
-      title: "Construir mi camino",
-      description:
-        "Continuar mi formación y comenzar a tomar decisiones más claras sobre el futuro que quiero.",
-    },
-    {
-      year: "2029",
-      icon: Briefcase,
-      title: "Primeros pasos profesionales",
-      description:
-        "Buscar oportunidades para adquirir experiencia y aplicar lo que he aprendido durante mi formación.",
-    },
-    {
-      year: "2030",
-      icon: Home,
-      title: "Más independencia",
-      description:
-        "Trabajar por mi estabilidad económica y personal, mientras sigo creciendo profesionalmente.",
-    },
-    {
-      year: "2031",
-      icon: Heart,
-      title: "Una vida construida con propósito",
-      description:
-        "Estar más cerca de mis grandes objetivos, apoyar a mi familia y sentirme orgullosa del camino recorrido.",
-    },
-  ];
-
   return (
     <section id="futuro" className="section future-section">
       <div className="section-heading">
         <span className="section-label">
-          03 — Mirando hacia adelante
+          FASE 3 · DEFINIENDO MI DESTINO
         </span>
 
         <h2>
-          Mi <span>futuro</span>
+          Mi visión <span>a los 30</span>
         </h2>
 
         <p>
-          No puedo saber exactamente qué ocurrirá, pero sí puedo
-          decidir qué pasos quiero dar para acercarme a la vida
-          que imagino.
+          A veces imaginar el futuro ayuda a entender qué decisiones quiero
+          comenzar a tomar desde hoy.
         </p>
       </div>
 
-      <div className="future-intro">
-        <div>
-          <span className="future-intro-label">
-            MI VISIÓN
-          </span>
+      <motion.div
+        className="future-letter"
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="future-letter-header">
+          <div className="future-letter-icon">
+            <Mail size={22} />
+          </div>
 
-          <h3>
-            Quiero convertirme en una mujer
-            <span> independiente y preparada.</span>
-          </h3>
+          <div>
+            <span>CARTA DESDE EL FUTURO</span>
+            <h3>Adriana de 30 años → Adriana de 18 años</h3>
+          </div>
         </div>
 
-        <p>
-          Mi objetivo es seguir aprendiendo, encontrar una
-          profesión que me apasione y construir un futuro en el
-          que pueda crecer sin olvidar mis valores.
-        </p>
-      </div>
+        <div className="future-letter-body">
+          <p>Querida Adriana:</p>
 
-      <div className="timeline">
-        {timeline.map((item, index) => {
-          const Icon = item.icon;
+          <p>
+            Te escribo desde unos años adelante para contarte que muchas de
+            las cosas que hoy te preocupan fueron convirtiéndose poco a poco
+            en experiencias que te ayudaron a crecer.
+          </p>
 
-          return (
-            <motion.article
-              className="timeline-item"
-              key={item.year}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.08,
-              }}
-            >
-              <div className="timeline-year">
-                {item.year}
-              </div>
+          <p>
+            A los 30 años vivo en un lugar donde me siento tranquila,
+            independiente y orgullosa de lo que he construido. Tengo una
+            profesión que me permite ayudar a otras personas y continuar
+            aprendiendo. No todo salió exactamente como lo imaginabas a los
+            18, pero cada decisión y cada dificultad te enseñaron algo
+            importante.
+          </p>
 
-              <div className="timeline-line">
-                <div className="timeline-dot">
-                  <Icon size={18} />
-                </div>
-              </div>
+          <p>
+            Terminaste tus estudios, construiste tu camino profesional y
+            lograste una mayor estabilidad económica. También pudiste ayudar
+            a tu familia, conocer nuevos lugares y vivir experiencias que
+            alguna vez parecían muy lejanas.
+          </p>
 
-              <div className="timeline-card">
-                <span>{item.year}</span>
+          <p>
+            Quiero darte un consejo: <strong>no necesitas tener toda tu vida
+            resuelta a los 18 años.</strong> Está bien tener dudas, cambiar
+            de opinión y comenzar de nuevo cuando sea necesario.
+          </p>
 
-                <h3>{item.title}</h3>
+          <p>
+            Confía más en ti. Aprovecha las oportunidades, estudia, aprende
+            de tus errores y no tengas miedo de intentar cosas nuevas. Sigue
+            siendo esa persona expresiva, divertida y responsable que siempre
+            has sido.
+          </p>
 
-                <p>{item.description}</p>
-              </div>
-            </motion.article>
-          );
-        })}
+          <p>
+            Y, sobre todo, nunca olvides tus raíces, a tu familia ni las
+            personas que estuvieron contigo cuando comenzabas este camino.
+          </p>
+
+          <p className="future-letter-signature">
+            Con cariño,
+            <br />
+            <strong>Adriana de 30 años</strong>
+          </p>
+        </div>
+      </motion.div>
+
+      <div className="future-vision-grid">
+        <motion.article
+          className="future-vision-card"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.1 }}
+        >
+          <div className="future-vision-icon">
+            <Home size={21} />
+          </div>
+
+          <span>DÓNDE VIVO</span>
+
+          <h3>Un lugar propio y tranquilo</h3>
+
+          <p>
+            Quiero vivir en un espacio donde tenga independencia, tranquilidad
+            y pueda sentir que estoy construyendo mi propia vida.
+          </p>
+        </motion.article>
+
+        <motion.article
+          className="future-vision-card"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.18 }}
+        >
+          <div className="future-vision-icon">
+            <Briefcase size={21} />
+          </div>
+
+          <span>A QUÉ ME DEDICO</span>
+
+          <h3>Una profesión con propósito</h3>
+
+          <p>
+            Quiero trabajar en un área que me permita seguir aprendiendo,
+            desarrollar mis capacidades y aportar a otras personas.
+          </p>
+        </motion.article>
+
+        <motion.article
+          className="future-vision-card"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.26 }}
+        >
+          <div className="future-vision-icon">
+            <Heart size={21} />
+          </div>
+
+          <span>LO QUE HE LOGRADO</span>
+
+          <h3>Independencia y estabilidad</h3>
+
+          <p>
+            Haber terminado mis estudios, construido una trayectoria
+            profesional, apoyado a mi familia y alcanzado una mayor estabilidad
+            personal.
+          </p>
+        </motion.article>
+
+        <motion.article
+          className="future-vision-card"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.34 }}
+        >
+          <div className="future-vision-icon">
+            <Plane size={21} />
+          </div>
+
+          <span>LO QUE QUIERO VIVIR</span>
+
+          <h3>Conocer y descubrir</h3>
+
+          <p>
+            Viajar, conocer nuevos lugares, vivir experiencias diferentes y
+            continuar descubriendo nuevas posibilidades para mi vida.
+          </p>
+        </motion.article>
       </div>
 
       <motion.div
         className="future-dream"
-        initial={{ opacity: 0, scale: 0.96 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
       >
-        <div className="future-dream-icon">
-          ✦
-        </div>
+        <Sparkles size={20} />
 
         <div>
-          <span>MI GRAN SUEÑO</span>
+          <span>MI VISIÓN</span>
 
           <h3>
-            Viajar, conocer nuevos lugares y construir una vida
-            de la que pueda sentirme orgullosa.
+            Construir una vida independiente, ayudar a mi familia y sentir
+            orgullo por la persona en la que me he convertido.
           </h3>
         </div>
       </motion.div>

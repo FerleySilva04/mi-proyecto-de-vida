@@ -1,104 +1,143 @@
+import { motion } from "framer-motion";
 import {
-  Heart,
+  MapPin,
+  Music,
+  Users,
   Lightbulb,
-  Brain,
-  Star,
 } from "lucide-react";
 
 function AboutMe() {
-  const strengths = [
+  const qualities = [
     {
-      icon: Heart,
-      title: "Empatía",
-      description:
-        "Me gusta comprender a las personas y brindar apoyo cuando alguien lo necesita.",
+      icon: Users,
+      title: "Expresiva",
+      text: "Me gusta comunicarme, compartir ideas y expresar lo que pienso y siento.",
+    },
+    {
+      icon: Music,
+      title: "Divertida",
+      text: "Disfruto compartir momentos especiales con mi familia y mis amigos.",
     },
     {
       icon: Lightbulb,
-      title: "Creatividad",
-      description:
-        "Disfruto expresar mis ideas y buscar nuevas formas de hacer las cosas.",
-    },
-    {
-      icon: Brain,
-      title: "Aprendizaje",
-      description:
-        "Me gusta aprender cosas nuevas y descubrir habilidades que me ayuden a crecer.",
-    },
-    {
-      icon: Star,
-      title: "Responsabilidad",
-      description:
-        "Cuando tengo un objetivo, trato de comprometerme y dar lo mejor de mí.",
+      title: "Responsable",
+      text: "Me esfuerzo por cumplir con mis compromisos y alcanzar lo que me propongo.",
     },
   ];
 
   return (
-    <section id="quien-soy" className="section about-section">
-      <div className="section-heading">
-        <span className="section-label">
-          01 — Autoconocimiento
-        </span>
+    <section className="section about-section">
+      <div className="about-container">
 
-        <h2>
-          ¿Quién <span>soy?</span>
-        </h2>
+        {/* ENCABEZADO */}
+        <motion.div
+          className="about-header"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="about-kicker">
+            CONÓCEME
+          </span>
 
-        <p>
-          Conocerme a mí misma es el primer paso para descubrir
-          qué quiero lograr y hacia dónde quiero dirigir mi futuro.
-        </p>
-      </div>
-
-      <div className="about-grid">
-        <div className="about-profile">
-          <div className="profile-placeholder">
-            <div className="profile-initial">A</div>
-
-            <span>Adriana Jiménez</span>
-          </div>
-
-          <h3>Esta soy yo</h3>
+          <h1>Quién soy</h1>
 
           <p>
-            Soy Adriana Jiménez, tengo 18 años y vivo en San Juan
-            Nepomuceno, Bolívar. Me considero una persona
-            expresiva, divertida y responsable.
+            Conocerme también es entender de dónde vengo,
+            qué me gusta y qué quiero construir para mi futuro.
           </p>
+        </motion.div>
 
-          <p className="about-extra">
-            Me gusta compartir con mi familia y amigos, escuchar
-            música, aprender cosas nuevas y conocer diferentes
-            lugares.
-          </p>
+        {/* CONTENIDO PRINCIPAL */}
+        <div className="about-main">
 
-          <p className="about-extra">
-            Para mi futuro me interesan diferentes caminos
-            profesionales. Entre ellos están ser profesora,
-            enfermera y también participar en la política.
-          </p>
+          {/* FOTO */}
+          <motion.div
+            className="about-image-card"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="about-image">
+              <img
+                src="/adriana.jpeg"
+                alt="Adriana Jiménez"
+              />
+            </div>
+
+            <div className="about-location">
+              <MapPin size={15} />
+              <span>San Juan Nepomuceno, Bolívar</span>
+            </div>
+          </motion.div>
+
+          {/* PRESENTACIÓN */}
+          <motion.div
+            className="about-story"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <span className="about-story-label">
+              MI PRESENTACIÓN
+            </span>
+
+            <h2>
+              Hola, soy{" "}
+              <span>Adriana Jiménez.</span>
+            </h2>
+
+            <p className="about-highlight">
+              Tengo 18 años y estoy comenzando una nueva
+              etapa de mi vida, llena de aprendizajes,
+              decisiones y sueños por alcanzar.
+            </p>
+
+            <p>
+              Nací en el corregimiento Las Delicias, en
+              Ayapel, Córdoba. Más adelante llegué con mi
+              familia a San Juan Nepomuceno, Bolívar,
+              donde desarrollé gran parte de mi formación
+              escolar.
+            </p>
+
+            <p>
+              Me gusta compartir tiempo con mi familia y
+              mis amigos, escuchar música, aprender cosas
+              nuevas y conocer diferentes lugares.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="strengths-grid">
-          {strengths.map((strength) => {
-            const Icon = strength.icon;
+        {/* CUALIDADES */}
+        <motion.div
+          className="about-qualities"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {qualities.map((quality) => {
+            const Icon = quality.icon;
 
             return (
-              <article
-                className="strength-card"
-                key={strength.title}
+              <div
+                className="about-quality"
+                key={quality.title}
               >
-                <div className="strength-icon">
-                  <Icon size={22} />
+                <div className="about-quality-icon">
+                  <Icon size={19} />
                 </div>
 
-                <h3>{strength.title}</h3>
+                <div>
+                  <h3>{quality.title}</h3>
 
-                <p>{strength.description}</p>
-              </article>
+                  <p>{quality.text}</p>
+                </div>
+              </div>
             );
           })}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

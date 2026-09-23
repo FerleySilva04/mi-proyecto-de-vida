@@ -1,135 +1,142 @@
 import { motion } from "framer-motion";
 import {
   MapPin,
+  Home,
+  GraduationCap,
   Users,
-  BookOpen,
   Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 function Historia() {
-  const stages = [
+  const timeline = [
     {
-      icon: MapPin,
       number: "01",
-      title: "Mis raíces",
-      place: "Ayapel, Córdoba",
-      description:
-        "Nací en Ayapel, Córdoba, específicamente en el corregimiento Las Delicias. Allí comenzaron mis primeros recuerdos y una parte importante de mi historia.",
+      title: "Mis primeros años",
+      place: "Las Delicias · Ayapel, Córdoba",
+      icon: Home,
+      text: "Nací en el corregimiento de Las Delicias, Ayapel, Córdoba. Allí comenzaron mis primeras experiencias y recuerdos junto a mi familia.",
     },
     {
-      icon: Users,
       number: "02",
       title: "Un nuevo lugar",
-      place: "San Juan Nepomuceno",
-      description:
-        "Con el paso de los años, me trasladé junto a mi familia a San Juan Nepomuceno, Bolívar, donde comenzó una nueva etapa de mi vida.",
+      place: "San Juan Nepomuceno · Bolívar",
+      icon: MapPin,
+      text: "Con mi familia nos trasladamos a San Juan Nepomuceno, donde viví gran parte de mi etapa escolar y fui construyendo nuevas experiencias.",
     },
     {
-      icon: BookOpen,
       number: "03",
-      title: "Mi crecimiento",
-      place: "Mi etapa escolar",
-      description:
-        "En San Juan Nepomuceno he desarrollado gran parte de mi formación académica. Mis estudios y experiencias me han ayudado a descubrir mis intereses y capacidades.",
+      title: "Mi etapa escolar",
+      place: "Aprender y descubrir",
+      icon: GraduationCap,
+      text: "Durante mis años de estudio fui descubriendo mis intereses, mis capacidades y diferentes posibilidades para mi futuro.",
     },
     {
-      icon: Sparkles,
       number: "04",
-      title: "Lo que viene",
-      place: "Mi futuro",
-      description:
-        "Todo lo que he vivido forma parte del camino que estoy construyendo. Quiero continuar preparándome, cumplir mis metas y crear nuevas experiencias.",
+      title: "Mi presente",
+      place: "18 años · Construyendo mi futuro",
+      icon: Users,
+      text: "Hoy estoy en una etapa de decisiones importantes. Quiero terminar bien mis estudios, explorar mis opciones y comenzar a construir mi independencia.",
     },
   ];
 
   return (
-    <section id="historia" className="section history-section">
+    <section className="section historia-section">
       <div className="section-heading">
         <span className="section-label">
-          04 — De dónde vengo
+          EXTRAS · MI HISTORIA
         </span>
 
         <h2>
-          Mi <span>historia</span>
+          De dónde <span>vengo</span>
         </h2>
 
         <p>
-          Cada lugar, cada experiencia y cada etapa de mi vida
-          ha aportado algo a la persona que soy hoy.
+          Mi historia explica parte de la persona que soy hoy y de las
+          experiencias que han influido en mis sueños.
         </p>
       </div>
 
-      <div className="history-intro">
-        <div className="history-intro-icon">
-          <MapPin size={28} />
+      <motion.div
+        className="historia-intro"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="historia-intro-icon">
+          <Sparkles size={25} />
         </div>
 
         <div>
-          <span>MI ORIGEN</span>
+          <span>MI HISTORIA</span>
 
           <h3>
-            Una historia que comenzó en
-            <strong> Las Delicias, Ayapel.</strong>
+            Cada etapa de mi vida ha dejado algo que llevar conmigo.
           </h3>
 
           <p>
-            Nací en el corregimiento Las Delicias, en Ayapel,
-            Córdoba. Después, junto a mi familia, llegué a San
-            Juan Nepomuceno, Bolívar, un lugar donde he vivido
-            importantes etapas de mi crecimiento y formación.
+            No puedo cambiar de dónde vengo, pero sí puedo decidir qué hago
+            con todo lo que he aprendido en el camino.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="history-timeline">
-        {stages.map((stage, index) => {
-          const Icon = stage.icon;
+      <div className="historia-timeline">
+        {timeline.map((item, index) => {
+          const Icon = item.icon;
 
           return (
             <motion.article
-              className="history-card"
-              key={stage.number}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              className="historia-item"
+              key={item.number}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.1,
+                duration: 0.45,
+                delay: index * 0.08,
               }}
             >
-              <div className="history-number">
-                {stage.number}
+              <div className="historia-number">
+                {item.number}
               </div>
 
-              <div className="history-icon">
-                <Icon size={22} />
+              <div className="historia-marker">
+                <Icon size={19} />
               </div>
 
-              <div className="history-content">
-                <span>{stage.place}</span>
+              <div className="historia-content">
+                <span className="historia-place">
+                  {item.place}
+                </span>
 
-                <h3>{stage.title}</h3>
+                <h3>{item.title}</h3>
 
-                <p>{stage.description}</p>
+                <p>{item.text}</p>
               </div>
+
+              {index < timeline.length - 1 && (
+                <ArrowRight
+                  className="historia-arrow"
+                  size={18}
+                />
+              )}
             </motion.article>
           );
         })}
       </div>
 
       <motion.div
-        className="history-message"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
+        className="historia-closing"
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.35 }}
       >
         <Sparkles size={20} />
 
         <p>
-          "Mi historia no define hasta dónde puedo llegar;
-          es el punto de partida de todo lo que todavía quiero
-          construir."
+          <strong>Mis raíces forman parte de mí.</strong> Quiero llevar
+          conmigo el cariño de mi familia, mis aprendizajes y todo lo que he
+          vivido mientras sigo construyendo una nueva etapa.
         </p>
       </motion.div>
     </section>

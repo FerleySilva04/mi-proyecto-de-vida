@@ -1,99 +1,48 @@
-import { useState } from "react";
-import {
-  Menu,
-  X,
-  User,
-  Heart,
-  Sparkles,
-  Target,
-  BookOpen,
-} from "lucide-react";
+import { Sparkles, Menu, X } from "lucide-react";
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const links = [
-    {
-      name: "Inicio",
-      icon: Sparkles,
-      href: "#inicio",
-    },
-    {
-      name: "Quién soy",
-      icon: User,
-      href: "#quien-soy",
-    },
-    {
-      name: "Mis valores",
-      icon: Heart,
-      href: "#valores",
-    },
-    {
-      name: "Mi futuro",
-      icon: Target,
-      href: "#futuro",
-    },
-    {
-      name: "Mi historia",
-      icon: BookOpen,
-      href: "#historia",
-    },
-
-    {
-      name: "Mis metas",
-      icon: Target,
-      href: "#metas",
-    },
-
-    {
-      name: "Mi plan",
-      icon: Target,
-      href: "#plan",
-    },
-
-    {
-      name: "Mi visión",
-      icon: Sparkles,
-      href: "#vision",
-    },
-  ];
-
+function Navbar({ onMenuClick, isMenuOpen }) {
   return (
-    <nav className="navbar">
-      <a href="#inicio" className="navbar-logo">
-        <span className="logo-symbol">✦</span>
+    <header className="dashboard-navbar">
+
+      <div className="dashboard-navbar-brand">
+        <div className="dashboard-navbar-logo">
+          <Sparkles size={18} />
+        </div>
 
         <div>
           <strong>Mi Proyecto de Vida</strong>
-          <small>Construyendo mi futuro</small>
+          <span>Construyendo mi futuro</span>
         </div>
-      </a>
-
-      <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
-        {links.map((link) => {
-          const Icon = link.icon;
-
-          return (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-            >
-              <Icon size={17} />
-              <span>{link.name}</span>
-            </a>
-          );
-        })}
       </div>
 
-      <button
-        className="navbar-menu"
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Abrir menú"
-      >
-        {menuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-    </nav>
+      <div className="dashboard-navbar-right">
+
+        <span className="dashboard-status">
+          Mi historia · Mi futuro · Mis sueños
+        </span>
+
+        <button
+          type="button"
+          className="dashboard-navbar-menu"
+          aria-label={
+            isMenuOpen
+              ? "Cerrar menú"
+              : "Abrir menú"
+          }
+          aria-expanded={isMenuOpen}
+          aria-controls="dashboard-sidebar"
+          onClick={onMenuClick}
+        >
+          {isMenuOpen ? (
+            <X size={22} />
+          ) : (
+            <Menu size={22} />
+          )}
+        </button>
+
+      </div>
+
+    </header>
   );
 }
 

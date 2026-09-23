@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-function Hero() {
+function Hero({ onNavigate }) {
   return (
     <section id="inicio" className="hero">
       <div className="hero-background">
@@ -46,20 +46,26 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <a href="#quien-soy" className="button button-primary">
+          <button
+            className="button button-primary"
+            onClick={() => onNavigate("quien-soy")}
+          >
             Conoce mi historia
-            <ArrowDown size={18} />
-          </a>
+            <ArrowRight size={18} />
+          </button>
 
-          <a href="#futuro" className="button button-secondary">
+          <button
+            className="button button-secondary"
+            onClick={() => onNavigate("metas")}
+          >
             Ver mis metas
-          </a>
+          </button>
         </motion.div>
       </div>
 
       <div className="hero-scroll">
         <span>Explora mi proyecto</span>
-        <ArrowDown size={18} />
+        <ArrowRight size={18} />
       </div>
     </section>
   );
