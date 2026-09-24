@@ -10,38 +10,38 @@ function Playlist() {
   const songs = [
     {
       number: "01",
-      title: "Color Esperanza",
-      artist: "Diego Torres",
+      title: "Brisa",
+      artist: "Luister La Voz",
       reason:
-        "Me recuerda que siempre puedo mirar hacia adelante y confiar en que las cosas pueden mejorar.",
+        "Representa la nostalgia y el deseo de recuperar a alguien importante. La canción habla de extrañar profundamente a una persona y de querer encontrar una manera de hacerle llegar ese sentimiento.",
     },
     {
       number: "02",
-      title: "Vivir Mi Vida",
-      artist: "Marc Anthony",
+      title: "Kilómetros",
+      artist: "Luister La Voz · DJ Dever",
       reason:
-        "Representa mi deseo de disfrutar cada etapa, aprender de las experiencias y aprovechar el presente.",
+        "Me recuerda que la distancia no necesariamente acaba con los sentimientos. Representa el cariño, la fidelidad y la esperanza de mantener un vínculo aunque existan kilómetros de por medio.",
     },
     {
       number: "03",
-      title: "Creo en Mí",
-      artist: "Natalia Jiménez",
+      title: "Ejemplo de Amor",
+      artist: "Luister La Voz",
       reason:
-        "Me recuerda la importancia de confiar en mis capacidades incluso cuando aparecen dudas.",
+        "Representa un amor alegre, cercano y sincero. Me gusta porque habla de una relación en la que existe cariño, admiración y felicidad por compartir la vida con otra persona.",
     },
     {
       number: "04",
-      title: "A Dios le Pido",
-      artist: "Juanes",
+      title: "Promesa Sagrada",
+      artist: "Luister La Voz",
       reason:
-        "Representa mis deseos de bienestar, tranquilidad y un buen futuro para mí y para las personas que quiero.",
+        "Es una canción que representa la superación, el esfuerzo y el agradecimiento hacia la familia. Me inspira porque muestra que las dificultades del pasado pueden convertirse en motivación para trabajar por un futuro mejor y devolverle a la familia todo su apoyo.",
     },
     {
       number: "05",
-      title: "Hall of Fame",
-      artist: "The Script",
+      title: "Los Caminos de la Vida",
+      artist: "Los Diablitos",
       reason:
-        "Me inspira a trabajar por mis objetivos y recordar que los grandes resultados requieren esfuerzo y constancia.",
+        "Me recuerda que la vida no siempre sigue el camino que imaginamos. Representa las dificultades de crecer, el esfuerzo de salir adelante y, especialmente, el amor y agradecimiento hacia la madre y la familia.",
     },
   ];
 
