@@ -66,7 +66,7 @@ a {
 
   height: 76px;
 
-  z-index: 1200;
+  z-index: 100;
 
   display: flex;
   align-items: center;
@@ -9845,4 +9845,37 @@ a {
     box-sizing: border-box;
   }
 
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 12px;
+}
+
+.language-button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  padding: 5px 4px;
+  color: #8f8b95;
+  transition: all 0.2s ease;
+}
+
+.language-button:hover {
+  color: #a15ab8;
+}
+
+.language-button.active {
+  color: #a15ab8;
+}
+
+.language-divider {
+  color: #d8d3dc;
+  font-size: 12px;
 }

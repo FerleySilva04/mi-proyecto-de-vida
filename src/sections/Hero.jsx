@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-function Hero({ onNavigate }) {
+function Hero({ onNavigate, language = "es" }) {
+  const isSpanish = language === "es";
+
   return (
     <section id="inicio" className="hero">
       <div className="hero-background">
@@ -17,7 +19,10 @@ function Hero({ onNavigate }) {
           transition={{ duration: 0.6 }}
         >
           <Sparkles size={17} />
-          Mi historia comienza aquí
+
+          {isSpanish
+            ? "Mi historia comienza aquí"
+            : "My story begins here"}
         </motion.div>
 
         <motion.h1
@@ -25,8 +30,10 @@ function Hero({ onNavigate }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Construyendo
-          <span> mi futuro</span>
+          {isSpanish ? "Construyendo" : "Building"}
+          <span>
+            {isSpanish ? " mi futuro" : " my future"}
+          </span>
         </motion.h1>
 
         <motion.p
@@ -35,9 +42,19 @@ function Hero({ onNavigate }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Soy Adriana Jiménez, tengo 18 años y estoy construyendo
-          mi camino con sueños, metas y muchas ganas de aprender
-          y crecer.
+          {isSpanish ? (
+            <>
+              Soy Adriana Jiménez, tengo 18 años y estoy construyendo
+              mi camino con sueños, metas y muchas ganas de aprender
+              y crecer.
+            </>
+          ) : (
+            <>
+              I am Adriana Jiménez, I am 18 years old, and I am building
+              my path with dreams, goals, and a strong desire to learn
+              and grow.
+            </>
+          )}
         </motion.p>
 
         <motion.div
@@ -50,7 +67,10 @@ function Hero({ onNavigate }) {
             className="button button-primary"
             onClick={() => onNavigate("quien-soy")}
           >
-            Conoce mi historia
+            {isSpanish
+              ? "Conoce mi historia"
+              : "Discover my story"}
+
             <ArrowRight size={18} />
           </button>
 
@@ -58,13 +78,18 @@ function Hero({ onNavigate }) {
             className="button button-secondary"
             onClick={() => onNavigate("metas")}
           >
-            Ver mis metas
+            {isSpanish ? "Ver mis metas" : "View my goals"}
           </button>
         </motion.div>
       </div>
 
       <div className="hero-scroll">
-        <span>Explora mi proyecto</span>
+        <span>
+          {isSpanish
+            ? "Explora mi proyecto"
+            : "Explore my project"}
+        </span>
+
         <ArrowRight size={18} />
       </div>
     </section>

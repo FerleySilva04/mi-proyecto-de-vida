@@ -23,6 +23,8 @@ import {
   Brain,
 } from "lucide-react";
 
+import translations from "./translations/translations";
+
 import Navbar from "./components/Navbar";
 
 import Hero from "./sections/Hero";
@@ -33,10 +35,6 @@ import Historia from "./sections/Historia";
 import Goals from "./sections/Goals";
 import Plan from "./sections/Plan";
 
-/*
-  Secciones nuevas.
-  Si todavía no existen, las crearemos una por una después.
-*/
 import Personality from "./sections/Personality";
 import Interests from "./sections/Interests";
 import Careers from "./sections/Careers";
@@ -56,6 +54,12 @@ import Gamification from "./sections/Gamification";
 function App() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Idioma actual
+  const [language, setLanguage] = useState("es");
+
+  // Traducciones correspondientes al idioma seleccionado
+  const t = translations[language];
 
   const handleNavigate = (sectionId) => {
     setActiveSection(sectionId);
@@ -79,9 +83,14 @@ function App() {
     // =====================================================
     {
       id: "inicio",
-      name: "Inicio",
+      name: t.nav.home,
       icon: Sparkles,
-      component: <Hero onNavigate={handleNavigate} />,
+      component: (
+        <Hero
+          onNavigate={handleNavigate}
+          language={language}
+        />
+      ),
     },
 
     // =====================================================
@@ -90,28 +99,28 @@ function App() {
     {
       type: "phase",
       id: "fase-1",
-      name: "FASE 1 · ¿QUIÉN SOY?",
+      name: t.nav.phase1,
     },
 
     {
       id: "quien-soy",
-      name: "Quién soy",
+      name: t.nav.about,
       icon: User,
-      component: <AboutMe />,
+      component: <AboutMe language={language} />,
     },
 
     {
       id: "personalidad",
-      name: "Mi personalidad",
+      name: t.nav.personality,
       icon: Brain,
-      component: <Personality />,
+      component: <Personality language={language} />,
     },
 
     {
       id: "valores",
-      name: "Mis valores",
+      name: t.nav.values,
       icon: Heart,
-      component: <Values />,
+      component: <Values language={language} />,
     },
 
     // =====================================================
@@ -120,28 +129,28 @@ function App() {
     {
       type: "phase",
       id: "fase-2",
-      name: "FASE 2 · ¿QUÉ PUEDO SER?",
+      name: t.nav.phase2,
     },
 
     {
       id: "intereses",
-      name: "Mis intereses",
+      name: t.nav.interests,
       icon: Compass,
-      component: <Interests />,
+      component: <Interests language={language} />,
     },
 
     {
       id: "carreras",
-      name: "Mis carreras",
+      name: t.nav.careers,
       icon: GraduationCap,
-      component: <Careers />,
+      component: <Careers language={language} />,
     },
 
     {
       id: "entrevistas",
-      name: "Entrevistas",
+      name: t.nav.interviews,
       icon: MessageCircle,
-      component: <Interviews />,
+      component: <Interviews language={language} />,
     },
 
     // =====================================================
@@ -150,28 +159,28 @@ function App() {
     {
       type: "phase",
       id: "fase-3",
-      name: "FASE 3 · ¿HACIA DÓNDE VOY?",
+      name: t.nav.phase3,
     },
 
     {
       id: "mision",
-      name: "Mi misión",
+      name: t.nav.mission,
       icon: Flag,
-      component: <Mission />,
+      component: <Mission language={language} />,
     },
 
     {
       id: "futuro",
-      name: "Mi visión a los 30",
+      name: t.nav.future,
       icon: Target,
-      component: <Future />,
+      component: <Future language={language} />,
     },
 
     {
       id: "metas",
-      name: "Mis metas SMART",
+      name: t.nav.goals,
       icon: Target,
-      component: <Goals />,
+      component: <Goals language={language} />,
     },
 
     // =====================================================
@@ -180,28 +189,28 @@ function App() {
     {
       type: "phase",
       id: "fase-4",
-      name: "FASE 4 · ¿CÓMO LO LOGRO?",
+      name: t.nav.phase4,
     },
 
     {
       id: "plan",
-      name: "Mi plan",
+      name: t.nav.plan,
       icon: CalendarDays,
-      component: <Plan />,
+      component: <Plan language={language} />,
     },
 
     {
       id: "habilidades",
-      name: "Mis habilidades",
+      name: t.nav.skills,
       icon: Wrench,
-      component: <Skills />,
+      component: <Skills language={language} />,
     },
 
     {
       id: "red-apoyo",
-      name: "Mi red de apoyo",
+      name: t.nav.support,
       icon: Users,
-      component: <SupportNetwork />,
+      component: <SupportNetwork language={language} />,
     },
 
     // =====================================================
@@ -210,21 +219,21 @@ function App() {
     {
       type: "phase",
       id: "fase-5",
-      name: "FASE 5 · ¿QUÉ PUEDE SALIR MAL?",
+      name: t.nav.phase5,
     },
 
     {
       id: "obstaculos",
-      name: "Mis obstáculos",
+      name: t.nav.obstacles,
       icon: AlertTriangle,
-      component: <Obstacles />,
+      component: <Obstacles language={language} />,
     },
 
     {
       id: "contingencia",
-      name: "Plan B / Plan C",
+      name: t.nav.contingency,
       icon: GitBranch,
-      component: <Contingency />,
+      component: <Contingency language={language} />,
     },
 
     // =====================================================
@@ -233,21 +242,21 @@ function App() {
     {
       type: "phase",
       id: "fase-6",
-      name: "FASE 6 · ¿CÓMO VOY?",
+      name: t.nav.phase6,
     },
 
     {
       id: "dashboard",
-      name: "Mi dashboard",
+      name: t.nav.dashboard,
       icon: BarChart3,
-      component: <Dashboard />,
+      component: <Dashboard language={language} />,
     },
 
     {
       id: "seguimiento",
-      name: "Mi seguimiento",
+      name: t.nav.tracking,
       icon: RefreshCw,
-      component: <Tracking />,
+      component: <Tracking language={language} />,
     },
 
     // =====================================================
@@ -256,42 +265,42 @@ function App() {
     {
       type: "phase",
       id: "extras",
-      name: "✨ EXTRAS",
+      name: t.nav.extras,
     },
 
     {
       id: "historia",
-      name: "Mi historia",
+      name: t.nav.story,
       icon: BookOpen,
-      component: <Historia />,
+      component: <Historia language={language} />,
     },
 
     {
       id: "inspiracion",
-      name: "Mi inspiración",
+      name: t.nav.inspiration,
       icon: Image,
-      component: <Inspiration />,
+      component: <Inspiration language={language} />,
     },
 
     {
       id: "playlist",
-      name: "Mi playlist",
+      name: t.nav.playlist,
       icon: Music,
-      component: <Playlist />,
+      component: <Playlist language={language} />,
     },
 
     {
       id: "diario",
-      name: "Mi diario del futuro",
+      name: t.nav.diary,
       icon: BookHeart,
-      component: <FutureDiary />,
+      component: <FutureDiary language={language} />,
     },
 
     {
       id: "gamificacion",
-      name: "Mi gamificación",
+      name: t.nav.gamification,
       icon: Trophy,
-      component: <Gamification />,
+      component: <Gamification language={language} />,
     },
   ];
 
@@ -304,8 +313,12 @@ function App() {
   return (
     <div className="dashboard-app">
       <Navbar
-        onMenuClick={() => setSidebarOpen((prev) => !prev)}
+        onMenuClick={() =>
+          setSidebarOpen((prev) => !prev)
+        }
         isMenuOpen={sidebarOpen}
+        language={language}
+        setLanguage={setLanguage}
       />
 
       <div className="dashboard-layout">
@@ -330,7 +343,7 @@ function App() {
 
             <div>
               <strong>Adriana Jiménez</strong>
-              <span>Proyecto de Vida</span>
+              <span>{t.profile.project}</span>
             </div>
           </div>
 
@@ -338,7 +351,9 @@ function App() {
 
           {/* Navegación */}
           <nav className="dashboard-menu">
-            <p className="menu-label">EXPLORAR</p>
+            <p className="menu-label">
+              {t.nav.explore}
+            </p>
 
             {sections.map((section) => {
               /*
@@ -377,7 +392,9 @@ function App() {
                   <span>{section.name}</span>
 
                   {isActive && (
-                    <span className="menu-arrow">→</span>
+                    <span className="menu-arrow">
+                      →
+                    </span>
                   )}
                 </button>
               );
@@ -386,8 +403,8 @@ function App() {
 
           {/* Información inferior */}
           <div className="sidebar-bottom">
-            <span>18 años</span>
-            <span>San Juan Nepomuceno</span>
+            <span>{t.profile.age}</span>
+            <span>{t.profile.city}</span>
           </div>
         </aside>
 
@@ -403,3 +420,4 @@ function App() {
 }
 
 export default App;
+

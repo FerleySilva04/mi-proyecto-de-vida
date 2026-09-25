@@ -12,105 +12,197 @@ import {
   Lock,
 } from "lucide-react";
 
-function Gamification() {
-  const levels = [
-    {
-      number: "01",
-      title: "Me conozco",
-      description:
-        "Identifico mis valores, fortalezas, intereses y aspectos por mejorar.",
-      status: "Completado",
-    },
-    {
-      number: "02",
-      title: "Exploro",
-      description:
-        "Investigo carreras, universidades, profesiones y diferentes posibilidades.",
-      status: "Completado",
-    },
-    {
-      number: "03",
-      title: "Decido",
-      description:
-        "Comparo opciones y empiezo a tomar decisiones sobre mi futuro.",
-      status: "En progreso",
-    },
-    {
-      number: "04",
-      title: "Construyo",
-      description:
-        "Desarrollo habilidades, gano experiencia y convierto mis planes en acciones.",
-      status: "Próximo nivel",
-    },
-    {
-      number: "05",
-      title: "Dejo mi huella",
-      description:
-        "Utilizo lo que he aprendido para aportar a mi familia, comunidad y entorno.",
-      status: "Meta futura",
-    },
-  ];
+function Gamification({ language = "es" }) {
+  const isSpanish = language === "es";
 
-  const rewards = [
-    {
-      icon: Star,
-      title: "Constancia",
-      text: "Por mantenerme trabajando en mis objetivos.",
-    },
-    {
-      icon: BookOpen,
-      title: "Aprendizaje",
-      text: "Por adquirir nuevos conocimientos y habilidades.",
-    },
-    {
-      icon: Trophy,
-      title: "Enfoque",
-      text: "Por mantener presentes mis prioridades.",
-    },
-    {
-      icon: Sparkles,
-      title: "Exploradora",
-      text: "Por atreverme a conocer nuevas posibilidades.",
-    },
-  ];
+  const levels = isSpanish
+    ? [
+        {
+          number: "01",
+          title: "Me conozco",
+          description:
+            "Identifico mis valores, fortalezas, intereses y aspectos por mejorar.",
+          status: "Completado",
+        },
+        {
+          number: "02",
+          title: "Exploro",
+          description:
+            "Investigo carreras, universidades, profesiones y diferentes posibilidades.",
+          status: "Completado",
+        },
+        {
+          number: "03",
+          title: "Decido",
+          description:
+            "Comparo opciones y empiezo a tomar decisiones sobre mi futuro.",
+          status: "En progreso",
+        },
+        {
+          number: "04",
+          title: "Construyo",
+          description:
+            "Desarrollo habilidades, gano experiencia y convierto mis planes en acciones.",
+          status: "Próximo nivel",
+        },
+        {
+          number: "05",
+          title: "Dejo mi huella",
+          description:
+            "Utilizo lo que he aprendido para aportar a mi familia, comunidad y entorno.",
+          status: "Meta futura",
+        },
+      ]
+    : [
+        {
+          number: "01",
+          title: "I know myself",
+          description:
+            "I identify my values, strengths, interests, and areas for improvement.",
+          status: "Completed",
+        },
+        {
+          number: "02",
+          title: "I explore",
+          description:
+            "I research careers, universities, professions, and different possibilities.",
+          status: "Completed",
+        },
+        {
+          number: "03",
+          title: "I decide",
+          description:
+            "I compare options and begin making decisions about my future.",
+          status: "In progress",
+        },
+        {
+          number: "04",
+          title: "I build",
+          description:
+            "I develop skills, gain experience, and turn my plans into actions.",
+          status: "Next level",
+        },
+        {
+          number: "05",
+          title: "I leave my mark",
+          description:
+            "I use what I have learned to contribute to my family, community, and environment.",
+          status: "Future goal",
+        },
+      ];
 
-  const powerUps = [
-    {
-      icon: Music,
-      title: "Música",
-    },
-    {
-      icon: Users,
-      title: "Hablar con mi familia",
-    },
-    {
-      icon: Footprints,
-      title: "Salir a caminar",
-    },
-    {
-      icon: BookOpen,
-      title: "Leer",
-    },
-    {
-      icon: Moon,
-      title: "Descansar",
-    },
-  ];
+  const rewards = isSpanish
+    ? [
+        {
+          icon: Star,
+          title: "Constancia",
+          text: "Por mantenerme trabajando en mis objetivos.",
+        },
+        {
+          icon: BookOpen,
+          title: "Aprendizaje",
+          text: "Por adquirir nuevos conocimientos y habilidades.",
+        },
+        {
+          icon: Trophy,
+          title: "Enfoque",
+          text: "Por mantener presentes mis prioridades.",
+        },
+        {
+          icon: Sparkles,
+          title: "Exploradora",
+          text: "Por atreverme a conocer nuevas posibilidades.",
+        },
+      ]
+    : [
+        {
+          icon: Star,
+          title: "Consistency",
+          text: "For staying committed to my goals.",
+        },
+        {
+          icon: BookOpen,
+          title: "Learning",
+          text: "For gaining new knowledge and skills.",
+        },
+        {
+          icon: Trophy,
+          title: "Focus",
+          text: "For keeping my priorities in mind.",
+        },
+        {
+          icon: Sparkles,
+          title: "Explorer",
+          text: "For daring to discover new possibilities.",
+        },
+      ];
+
+  const powerUps = isSpanish
+    ? [
+        {
+          icon: Music,
+          title: "Música",
+        },
+        {
+          icon: Users,
+          title: "Hablar con mi familia",
+        },
+        {
+          icon: Footprints,
+          title: "Salir a caminar",
+        },
+        {
+          icon: BookOpen,
+          title: "Leer",
+        },
+        {
+          icon: Moon,
+          title: "Descansar",
+        },
+      ]
+    : [
+        {
+          icon: Music,
+          title: "Music",
+        },
+        {
+          icon: Users,
+          title: "Talking with my family",
+        },
+        {
+          icon: Footprints,
+          title: "Going for a walk",
+        },
+        {
+          icon: BookOpen,
+          title: "Reading",
+        },
+        {
+          icon: Moon,
+          title: "Resting",
+        },
+      ];
 
   return (
     <section className="section gamification-section">
       <div className="section-heading">
         <span className="section-label">
-          EXTRAS · GAMIFICACIÓN
+          {isSpanish
+            ? "EXTRAS · GAMIFICACIÓN"
+            : "EXTRAS · GAMIFICATION"}
         </span>
 
         <h2>
-          Mi vida como <span>un videojuego</span>
+          {isSpanish ? "Mi vida como " : "My life as "}
+          <span>
+            {isSpanish ? "un videojuego" : "a video game"}
+          </span>
         </h2>
 
         <p>
-          Una forma divertida de representar mis avances, aprendizajes,
-          recompensas y próximos retos.
+          {isSpanish
+            ? "Una forma divertida de representar mis avances, aprendizajes, recompensas y próximos retos."
+            : "A fun way to represent my progress, learning, rewards, and upcoming challenges."}
         </p>
       </div>
 
@@ -120,23 +212,28 @@ function Gamification() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="gamification-avatar">
-          A
-        </div>
+        <div className="gamification-avatar">A</div>
 
         <div className="gamification-profile-info">
-          <span>JUGADORA</span>
+          <span>
+            {isSpanish ? "JUGADORA" : "PLAYER"}
+          </span>
 
           <h3>Adriana Jiménez</h3>
 
           <p>
-            Nivel actual: <strong>3 · Decido</strong>
+            {isSpanish ? "Nivel actual: " : "Current level: "}
+            <strong>
+              {isSpanish ? "3 · Decido" : "3 · I Decide"}
+            </strong>
           </p>
         </div>
 
         <div className="gamification-xp">
           <div>
-            <span>EXPERIENCIA</span>
+            <span>
+              {isSpanish ? "EXPERIENCIA" : "EXPERIENCE"}
+            </span>
 
             <strong>1.850 XP</strong>
           </div>
@@ -146,7 +243,9 @@ function Gamification() {
           </div>
 
           <small>
-            68% para desbloquear el siguiente nivel
+            {isSpanish
+              ? "68% para desbloquear el siguiente nivel"
+              : "68% to unlock the next level"}
           </small>
         </div>
       </motion.div>
@@ -159,10 +258,14 @@ function Gamification() {
 
           <div>
             <span className="gamification-small-label">
-              MI RUTA
+              {isSpanish ? "MI RUTA" : "MY PATH"}
             </span>
 
-            <h3>Los niveles de mi proyecto</h3>
+            <h3>
+              {isSpanish
+                ? "Los niveles de mi proyecto"
+                : "The levels of my project"}
+            </h3>
           </div>
         </div>
 
@@ -215,10 +318,14 @@ function Gamification() {
 
           <div>
             <span className="gamification-small-label">
-              RECOMPENSAS
+              {isSpanish ? "RECOMPENSAS" : "REWARDS"}
             </span>
 
-            <h3>Lo que quiero ganar en el camino</h3>
+            <h3>
+              {isSpanish
+                ? "Lo que quiero ganar en el camino"
+                : "What I want to gain along the way"}
+            </h3>
           </div>
         </div>
 
@@ -261,7 +368,11 @@ function Gamification() {
               POWER-UPS
             </span>
 
-            <h3>Cosas que me ayudan a recuperar energía</h3>
+            <h3>
+              {isSpanish
+                ? "Cosas que me ayudan a recuperar energía"
+                : "Things that help me recharge my energy"}
+            </h3>
           </div>
         </div>
 
@@ -300,9 +411,14 @@ function Gamification() {
         <Sparkles size={20} />
 
         <p>
-          <strong>Cada pequeño avance cuenta.</strong> No necesito completar
-          todos los niveles rápidamente. Lo importante es seguir aprendiendo,
-          avanzar a mi propio ritmo y disfrutar el proceso.
+          <strong>
+            {isSpanish
+              ? "Cada pequeño avance cuenta."
+              : "Every small step counts."}
+          </strong>{" "}
+          {isSpanish
+            ? "No necesito completar todos los niveles rápidamente. Lo importante es seguir aprendiendo, avanzar a mi propio ritmo y disfrutar el proceso."
+            : "I do not need to complete every level quickly. What matters is continuing to learn, moving at my own pace, and enjoying the process."}
         </p>
       </motion.div>
     </section>

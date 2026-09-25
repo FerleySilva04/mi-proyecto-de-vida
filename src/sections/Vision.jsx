@@ -7,33 +7,62 @@ import {
   Star,
 } from "lucide-react";
 
-function Vision() {
-  const dreams = [
-    {
-      icon: Briefcase,
-      title: "Crecer profesionalmente",
-      description:
-        "Encontrar una profesión que me guste, prepararme y sentir que estoy construyendo un camino propio.",
-    },
-    {
-      icon: Home,
-      title: "Ser independiente",
-      description:
-        "Lograr poco a poco una mayor independencia personal y económica, tomando mis propias decisiones.",
-    },
-    {
-      icon: Heart,
-      title: "Ayudar a mi familia",
-      description:
-        "Poder devolverle a mi familia parte del apoyo que me ha brindado y compartir con ellos mis logros.",
-    },
-    {
-      icon: Plane,
-      title: "Conocer nuevos lugares",
-      description:
-        "Viajar, conocer diferentes lugares, vivir nuevas experiencias y descubrir otras formas de ver el mundo.",
-    },
-  ];
+function Vision({ language = "es" }) {
+  const isSpanish = language === "es";
+
+  const dreams = isSpanish
+    ? [
+        {
+          icon: Briefcase,
+          title: "Crecer profesionalmente",
+          description:
+            "Encontrar una profesión que me guste, prepararme y sentir que estoy construyendo un camino propio.",
+        },
+        {
+          icon: Home,
+          title: "Ser independiente",
+          description:
+            "Lograr poco a poco una mayor independencia personal y económica, tomando mis propias decisiones.",
+        },
+        {
+          icon: Heart,
+          title: "Ayudar a mi familia",
+          description:
+            "Poder devolverle a mi familia parte del apoyo que me ha brindado y compartir con ellos mis logros.",
+        },
+        {
+          icon: Plane,
+          title: "Conocer nuevos lugares",
+          description:
+            "Viajar, conocer diferentes lugares, vivir nuevas experiencias y descubrir otras formas de ver el mundo.",
+        },
+      ]
+    : [
+        {
+          icon: Briefcase,
+          title: "Grow professionally",
+          description:
+            "Find a career I enjoy, prepare myself, and feel that I am building my own path.",
+        },
+        {
+          icon: Home,
+          title: "Become independent",
+          description:
+            "Gradually achieve greater personal and financial independence while making my own decisions.",
+        },
+        {
+          icon: Heart,
+          title: "Help my family",
+          description:
+            "Give back to my family for some of the support they have given me and share my achievements with them.",
+        },
+        {
+          icon: Plane,
+          title: "Discover new places",
+          description:
+            "Travel, visit different places, have new experiences, and discover other ways of seeing the world.",
+        },
+      ];
 
   return (
     <section id="vision" className="section vision-section">
@@ -48,7 +77,11 @@ function Vision() {
           <Star size={26} />
         </motion.div>
 
-        <span>07 — MI VISIÓN PERSONAL</span>
+        <span>
+          {isSpanish
+            ? "07 — MI VISIÓN PERSONAL"
+            : "07 — MY PERSONAL VISION"}
+        </span>
 
         <motion.h2
           initial={{ opacity: 0, y: 25 }}
@@ -56,14 +89,23 @@ function Vision() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          La vida que quiero
-          <strong> construir.</strong>
+          {isSpanish ? (
+            <>
+              La vida que quiero
+              <strong> construir.</strong>
+            </>
+          ) : (
+            <>
+              The life I want to
+              <strong> build.</strong>
+            </>
+          )}
         </motion.h2>
 
         <p>
-          Quiero mirar hacia atrás algún día y sentir que cada
-          esfuerzo, cada decisión y cada experiencia tuvieron
-          un propósito.
+          {isSpanish
+            ? "Quiero mirar hacia atrás algún día y sentir que cada esfuerzo, cada decisión y cada experiencia tuvieron un propósito."
+            : "I want to look back one day and feel that every effort, every decision, and every experience had a purpose."}
         </p>
       </div>
 
@@ -105,8 +147,9 @@ function Vision() {
         <div className="vision-final-line"></div>
 
         <p>
-          "Mi proyecto de vida no es tener todas las respuestas,
-          sino tener el valor para seguir buscando mi camino."
+          {isSpanish
+            ? '"Mi proyecto de vida no es tener todas las respuestas, sino tener el valor para seguir buscando mi camino."'
+            : '"My life project is not about having all the answers, but having the courage to keep searching for my path."'}
         </p>
 
         <span>— Adriana Jiménez</span>
