@@ -110,9 +110,9 @@ function Personality() {
     <section className="section personality-section">
       <div className="section-heading">
         <span className="section-label">FASE 1 · AUTOCONOCIMIENTO</span>
-
-        <h2>Mi personalidad</h2>
-
+        <h2>
+          Mi <span>Personalidad</span>
+        </h2>
         <p>
           Conocer cómo aprendo, cómo trabajo y cómo tomo decisiones me ayuda
           a entender mejor quién soy y qué necesito para crecer.
@@ -160,7 +160,7 @@ function Personality() {
 
           <div>
             <span>LO QUE ME HACE ESPECIAL</span>
-            <h3>Mis superpoderes</h3>
+            <h3>Mis superpoderes </h3>
           </div>
         </div>
 

@@ -47,7 +47,7 @@ function Mission() {
           FASE 3 · DEFINIENDO MI DESTINO
         </span>
 
-        <h2>Mi misión personal</h2>
+        <h2>Mi <span>misión personal</span> </h2>
 
         <p>
           Mi misión representa aquello que quiero aportar mientras construyo

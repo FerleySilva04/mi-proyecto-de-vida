@@ -674,6 +674,10 @@ a {
   margin-bottom: 32px;
 }
 
+.about-header h1 span {
+  color: #a15ab8;
+}
+
 .about-kicker,
 .about-story-label {
   display: inline-block;
@@ -4417,6 +4421,10 @@ a {
   margin-top: 30px;
 }
 
+.section-heading h2 span {
+  color: #a15ab8;
+}
+
 .personality-card {
   position: relative;
   min-height: 245px;
@@ -4799,6 +4807,10 @@ a {
 
 .interests-section {
   width: 100%;
+}
+
+.interests-section .section-heading h2 span {
+  color: #a15ab8;
 }
 
 /* ---------------------------------------------------------
@@ -5335,6 +5347,10 @@ a {
 
 .careers-section {
   width: 100%;
+}
+
+.section-heading h2 span {
+  color: #a15ab8;
 }
 
 /* ---------------------------------------------------------
@@ -5931,6 +5947,10 @@ a {
   width: 100%;
 }
 
+.section-heading h2 span {
+  color: #a15ab8;
+}
+
 /* ---------------------------------------------------------
    INTRO
    --------------------------------------------------------- */
@@ -6408,6 +6428,10 @@ a {
 
 .mission-section {
   width: 100%;
+}
+
+.section-heading h2 span {
+  color: #a15ab8;
 }
 
 /* ---------------------------------------------------------

@@ -67,7 +67,7 @@ function Interviews() {
           FASE 2 · EXPLORANDO POSIBILIDADES
         </span>
 
-        <h2>Entrevistas a profesionales</h2>
+        <h2>Entrevistas <span>a profesionales</span></h2>
 
         <p>
           Antes de elegir una profesión, quiero conocer la experiencia de

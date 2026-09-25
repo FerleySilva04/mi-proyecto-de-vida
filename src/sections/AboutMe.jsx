@@ -40,7 +40,9 @@ function AboutMe() {
             CONÓCEME
           </span>
 
-          <h1>Quién soy</h1>
+          <h1>
+            Quién <span>soy</span>
+          </h1>
 
           <p>
             Conocerme también es entender de dónde vengo,

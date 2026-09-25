@@ -79,7 +79,7 @@ function Interests() {
           FASE 2 · EXPLORANDO POSIBILIDADES
         </span>
 
-        <h2>Mi constelación de intereses</h2>
+        <h2>Mi constelación <span>de intereses </span> </h2>
 
         <p>
           Mis intereses son una pista importante para descubrir qué caminos

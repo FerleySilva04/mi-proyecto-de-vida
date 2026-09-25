@@ -168,7 +168,7 @@ function Careers() {
           FASE 2 · EXPLORANDO POSIBILIDADES
         </span>
 
-        <h2>Mis carreras</h2>
+        <h2>Mis <span>carreras</span></h2>
 
         <p>
           Estas son tres opciones profesionales que actualmente despiertan mi
