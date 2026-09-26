@@ -105,27 +105,37 @@ function Mission({ language = "es" }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="mission-symbol">
-          <Flag size={28} />
+        <div className="mission-main-content">
+          <div className="mission-symbol">
+            <Flag size={28} />
+          </div>
+
+          <span>
+            {isSpanish ? "MI MISIÓN ES..." : "MY MISSION IS..."}
+          </span>
+
+          <blockquote>
+            {isSpanish
+              ? "“Crecer como persona y profesional, aprovechar mis capacidades para ayudar a los demás, apoyar a mi familia y construir una vida independiente basada en el respeto, la honestidad y el deseo de aprender.”"
+              : "“To grow as a person and professional, use my abilities to help others, support my family, and build an independent life based on respect, honesty, and the desire to learn.”"}
+          </blockquote>
+
+          <div className="mission-line"></div>
+
+          <p>
+            {isSpanish
+              ? "Esta misión resume lo que quiero tener presente mientras tomo decisiones sobre mis estudios, mi profesión y mi vida."
+              : "This mission summarizes what I want to keep in mind while making decisions about my studies, career, and life."}
+          </p>
         </div>
 
-        <span>
-          {isSpanish ? "MI MISIÓN ES..." : "MY MISSION IS..."}
-        </span>
-
-        <blockquote>
-          {isSpanish
-            ? "“Crecer como persona y profesional, aprovechar mis capacidades para ayudar a los demás, apoyar a mi familia y construir una vida independiente basada en el respeto, la honestidad y el deseo de aprender.”"
-            : "“To grow as a person and professional, use my abilities to help others, support my family, and build an independent life based on respect, honesty, and the desire to learn.”"}
-        </blockquote>
-
-        <div className="mission-line"></div>
-
-        <p>
-          {isSpanish
-            ? "Esta misión resume lo que quiero tener presente mientras tomo decisiones sobre mis estudios, mi profesión y mi vida."
-            : "This mission summarizes what I want to keep in mind while making decisions about my studies, career, and life."}
-        </p>
+        <div className="mission-image-wrapper">
+          <img
+            src="/mision.png"
+            alt={isSpanish ? "Representación de la misión" : "Mission representation"}
+            className="mission-image"
+          />
+        </div>
       </motion.div>
 
       {/* PILARES */}

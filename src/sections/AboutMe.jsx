@@ -61,8 +61,8 @@ function AboutMe({ language = "es" }) {
           </span>
 
           <h1>
-            {isSpanish ? "Quién " : "Who "}
-            <span>{isSpanish ? "soy" : "I am"}</span>
+            {isSpanish ? "¿Quién " : "Who "}
+            <span>{isSpanish ? "soy?" : "I am?"}</span>
           </h1>
 
           <p>
@@ -87,8 +87,8 @@ function AboutMe({ language = "es" }) {
                 src="/adriana.jpeg"
                 alt={
                   isSpanish
-                    ? "Adriana Jiménez"
-                    : "Adriana Jiménez"
+                    ? "Adriana Lucia Jiménez Pila"
+                    : "Adriana Lucia Jiménez Pila"
                 }
               />
             </div>
@@ -116,7 +116,7 @@ function AboutMe({ language = "es" }) {
 
             <h2>
               {isSpanish ? "Hola, soy " : "Hi, I'm "}
-              <span>Adriana Jiménez.</span>
+              <span>Adriana Lucia Jiménez Pila.</span>
             </h2>
 
             <p className="about-highlight">

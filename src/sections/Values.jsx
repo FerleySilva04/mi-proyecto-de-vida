@@ -54,6 +54,7 @@ function Values({ language = "es" }) {
 
   return (
     <section id="valores" className="section values-section">
+      {/* ENCABEZADO DE SECCIÓN */}
       <div className="section-heading">
         <span className="section-label">
           {isSpanish
@@ -73,38 +74,60 @@ function Values({ language = "es" }) {
         </p>
       </div>
 
-      <div className="values-grid">
-        {values.map((value, index) => {
-          const Icon = value.icon;
+      {/* CONTENEDOR PRINCIPAL: IMAGEN + TARJETAS DE VALORES */}
+      <div className="values-layout">
+        {/* TARJETA DE IMAGEN ILUSTRATIVA */}
+        <motion.div
+          className="values-image-card"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <img
+            src="/valores.png"
+            alt={
+              isSpanish
+                ? "Ilustración sobre los valores de Adriana"
+                : "Illustration about Adriana's values"
+            }
+          />
+        </motion.div>
 
-          return (
-            <motion.article
-              className="value-card"
-              key={value.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.15,
-              }}
-            >
-              <div className="value-top">
-                <span>{value.number}</span>
+        {/* REJILLA CON TARJETAS DE VALORES */}
+        <div className="values-grid">
+          {values.map((value, index) => {
+            const Icon = value.icon;
 
-                <div className="value-icon">
-                  <Icon size={23} />
+            return (
+              <motion.article
+                className="value-card"
+                key={value.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.12,
+                }}
+              >
+                <div className="value-top">
+                  <span>{value.number}</span>
+
+                  <div className="value-icon">
+                    <Icon size={23} />
+                  </div>
                 </div>
-              </div>
 
-              <h3>{value.title}</h3>
-
-              <p>{value.description}</p>
-            </motion.article>
-          );
-        })}
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
 
+      {/* CITA / MENSAJE FINAL */}
       <motion.div
         className="values-quote"
         initial={{ opacity: 0 }}
@@ -113,7 +136,6 @@ function Values({ language = "es" }) {
         transition={{ duration: 0.8 }}
       >
         <span>✦</span>
-
         <p>
           {isSpanish
             ? '"Quiero crecer sin dejar de ser fiel a quien soy."'

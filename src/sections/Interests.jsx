@@ -138,6 +138,7 @@ function Interests({ language = "es" }) {
 
   return (
     <section className="section interests-section">
+      {/* ENCABEZADO */}
       <div className="section-heading">
         <span className="section-label">
           {isSpanish
@@ -159,43 +160,61 @@ function Interests({ language = "es" }) {
         </p>
       </div>
 
-      {/* MATERIAS */}
-      <motion.div
-        className="interests-feature"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="interests-feature-icon">
-          <BookOpen size={24} />
-        </div>
+      {/* BLOQUE DESTACADO CON IMAGEN Y MATERIAS */}
+      <div className="interests-top-layout">
+        <motion.div
+          className="interests-image-card"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <img
+            src="/intereses.png"
+            alt={
+              isSpanish
+                ? "Ilustración sobre los intereses de Adriana"
+                : "Illustration about Adriana's interests"
+            }
+          />
+        </motion.div>
 
-        <div className="interests-feature-content">
-          <span className="interests-small-label">
-            {isSpanish ? "EN EL COLEGIO" : "AT SCHOOL"}
-          </span>
-
-          <h3>
-            {isSpanish
-              ? "Materias que me emocionan"
-              : "Subjects that excite me"}
-          </h3>
-
-          <p>
-            {isSpanish
-              ? "Hay asignaturas que despiertan especialmente mi curiosidad y conectan con los temas que me gustaría seguir explorando."
-              : "Some subjects especially spark my curiosity and connect with topics that I would like to continue exploring."}
-          </p>
-
-          <div className="interests-tags">
-            {schoolSubjects.map((subject) => (
-              <span key={subject} className="interest-tag">
-                {subject}
-              </span>
-            ))}
+        <motion.div
+          className="interests-feature"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="interests-feature-icon">
+            <BookOpen size={24} />
           </div>
-        </div>
-      </motion.div>
+
+          <div className="interests-feature-content">
+            <span className="interests-small-label">
+              {isSpanish ? "EN EL COLEGIO" : "AT SCHOOL"}
+            </span>
+
+            <h3>
+              {isSpanish
+                ? "Materias que me emocionan"
+                : "Subjects that excite me"}
+            </h3>
+
+            <p>
+              {isSpanish
+                ? "Hay asignaturas que despiertan especialmente mi curiosidad y conectan con los temas que me gustaría seguir explorando."
+                : "Some subjects especially spark my curiosity and connect with topics that I would like to continue exploring."}
+            </p>
+
+            <div className="interests-tags">
+              {schoolSubjects.map((subject) => (
+                <span key={subject} className="interest-tag">
+                  {subject}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
 
       {/* ACTIVIDADES */}
       <div className="interests-block">
@@ -235,7 +254,6 @@ function Interests({ language = "es" }) {
                 </div>
 
                 <h4>{item.title}</h4>
-
                 <p>{item.text}</p>
               </motion.article>
             );
@@ -280,9 +298,7 @@ function Interests({ language = "es" }) {
               }}
             >
               <span>{String(index + 1).padStart(2, "0")}</span>
-
               <p>{topic}</p>
-
               <ArrowRight size={16} />
             </motion.div>
           ))}
@@ -326,7 +342,6 @@ function Interests({ language = "es" }) {
               </span>
 
               <h4>{problem.title}</h4>
-
               <p>{problem.text}</p>
             </motion.article>
           ))}

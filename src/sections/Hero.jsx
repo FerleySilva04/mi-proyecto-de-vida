@@ -44,13 +44,13 @@ function Hero({ onNavigate, language = "es" }) {
         >
           {isSpanish ? (
             <>
-              Soy Adriana Jiménez, tengo 18 años y estoy construyendo
+              Soy Adriana Lucia Jiménez Pila, tengo 18 años y estoy construyendo
               mi camino con sueños, metas y muchas ganas de aprender
               y crecer.
             </>
           ) : (
             <>
-              I am Adriana Jiménez, I am 18 years old, and I am building
+              I am Adriana Lucia Jiménez Pila, I am 18 years old, and I am building
               my path with dreams, goals, and a strong desire to learn
               and grow.
             </>

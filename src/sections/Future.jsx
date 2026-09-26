@@ -241,24 +241,35 @@ function Future({ language = "es" }) {
         </motion.article>
       </div>
 
+      {/* BLOQUE TARJETA VISIÓN CON IMAGEN */}
       <motion.div
         className="future-dream"
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        <Sparkles size={20} />
+        <div className="future-dream-content">
+          <Sparkles size={20} />
 
-        <div>
-          <span>
-            {isSpanish ? "MI VISIÓN" : "MY VISION"}
-          </span>
+          <div>
+            <span>
+              {isSpanish ? "MI VISIÓN" : "MY VISION"}
+            </span>
 
-          <h3>
-            {isSpanish
-              ? "Construir una vida independiente, ayudar a mi familia y sentir orgullo por la persona en la que me he convertido."
-              : "Build an independent life, help my family, and feel proud of the person I have become."}
-          </h3>
+            <h3>
+              {isSpanish
+                ? "Construir una vida independiente, ayudar a mi familia y sentir orgullo por la persona en la que me he convertido."
+                : "Build an independent life, help my family, and feel proud of the person I have become."}
+            </h3>
+          </div>
+        </div>
+
+        <div className="future-dream-image-wrapper">
+          <img
+            src="/vision.png"
+            alt={isSpanish ? "Visión a futuro" : "Future vision"}
+            className="future-dream-image"
+          />
         </div>
       </motion.div>
     </section>

@@ -342,7 +342,7 @@ function App() {
             <div className="sidebar-avatar">A</div>
 
             <div>
-              <strong>Adriana Jiménez</strong>
+              <strong>Adriana Lucia Jiménez Pila</strong>
               <span>{t.profile.project}</span>
             </div>
           </div>

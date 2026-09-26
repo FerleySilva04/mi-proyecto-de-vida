@@ -145,6 +145,15 @@ function Plan({ language = "es" }) {
                 : "My journey continues"}
             </span>
           </div>
+
+          {/* Imagen de la sección Plan */}
+          <div className="plan-image-wrapper">
+            <img
+              src="/plan.png"
+              alt={isSpanish ? "Plan de acción" : "Action plan"}
+              className="plan-image"
+            />
+          </div>
         </div>
 
         <div className="plan-steps">

@@ -332,42 +332,60 @@ function Careers({ language = "es" }) {
         </p>
       </div>
 
-      {/* INTRO */}
-      <motion.div
-        className="careers-intro"
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="careers-intro-icon">
-          <School size={23} />
-        </div>
+      {/* INTRO Y TARJETA CON IMAGEN CARRERAS.PNG */}
+      <div className="careers-top-layout">
+        <motion.div
+          className="careers-image-card"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <img
+            src="/carreras.png"
+            alt={
+              isSpanish
+                ? "Ilustración sobre las opciones de carrera de Adriana"
+                : "Illustration about Adriana's career options"
+            }
+          />
+        </motion.div>
 
-        <div>
-          <span>
-            {isSpanish
-              ? "MI MÉTODO DE EXPLORACIÓN"
-              : "MY EXPLORATION METHOD"}
-          </span>
+        <motion.div
+          className="careers-intro"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="careers-intro-icon">
+            <School size={23} />
+          </div>
 
-          <h3>
-            {isSpanish
-              ? "Tres caminos, una pregunta:"
-              : "Three paths, one question:"}{" "}
-            <strong>
+          <div>
+            <span>
               {isSpanish
-                ? "¿qué quiero construir?"
-                : "what do I want to build?"}
-            </strong>
-          </h3>
+                ? "MI MÉTODO DE EXPLORACIÓN"
+                : "MY EXPLORATION METHOD"}
+            </span>
 
-          <p>
-            {isSpanish
-              ? "No necesito decidirlo todo de inmediato. Primero quiero conocer las opciones, investigar y descubrir cuál conecta mejor con mis intereses, habilidades y proyecto de vida."
-              : "I don't need to decide everything right away. First, I want to learn about the options, research them, and discover which one connects best with my interests, skills, and life project."}
-          </p>
-        </div>
-      </motion.div>
+            <h3>
+              {isSpanish
+                ? "Tres caminos, una pregunta:"
+                : "Three paths, one question:"}{" "}
+              <strong>
+                {isSpanish
+                  ? "¿qué quiero construir?"
+                  : "what do I want to build?"}
+              </strong>
+            </h3>
+
+            <p>
+              {isSpanish
+                ? "No necesito decidirlo todo de inmediato. Primero quiero conocer las opciones, investigar y descubrir cuál conecta mejor con mis intereses, habilidades y proyecto de vida."
+                : "I don't need to decide everything right away. First, I want to learn about the options, research them, and discover which one connects best with my interests, skills, and life project."}
+            </p>
+          </div>
+        </motion.div>
+      </div>
 
       {/* CARRERAS */}
       <div className="careers-list">
@@ -387,9 +405,7 @@ function Careers({ language = "es" }) {
             >
               {/* CABECERA */}
               <div className="career-card-header">
-                <div className="career-number">
-                  {career.number}
-                </div>
+                <div className="career-number">{career.number}</div>
 
                 <div className="career-icon">
                   <Icon size={25} />
@@ -397,8 +413,7 @@ function Careers({ language = "es" }) {
 
                 <div className="career-title">
                   <span>
-                    {isSpanish ? "OPCIÓN" : "OPTION"}{" "}
-                    {career.number}
+                    {isSpanish ? "OPCIÓN" : "OPTION"} {career.number}
                   </span>
 
                   <h3>{career.title}</h3>
@@ -500,18 +515,13 @@ function Careers({ language = "es" }) {
                   <Clock3 size={17} />
 
                   <h4>
-                    {isSpanish
-                      ? "Un día típico"
-                      : "A typical day"}
+                    {isSpanish ? "Un día típico" : "A typical day"}
                   </h4>
                 </div>
 
                 <div className="career-day">
                   {career.day.map((activity, activityIndex) => (
-                    <div
-                      key={activity}
-                      className="career-day-item"
-                    >
+                    <div key={activity} className="career-day-item">
                       <span>
                         {String(activityIndex + 1).padStart(2, "0")}
                       </span>
@@ -548,9 +558,7 @@ function Careers({ language = "es" }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <span>
-          {isSpanish ? "MI REFLEXIÓN" : "MY REFLECTION"}
-        </span>
+        <span>{isSpanish ? "MI REFLEXIÓN" : "MY REFLECTION"}</span>
 
         <h3>
           {isSpanish
@@ -569,4 +577,3 @@ function Careers({ language = "es" }) {
 }
 
 export default Careers;
-

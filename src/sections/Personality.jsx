@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Eye,
   Users,
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 
 function Personality({ language = "es" }) {
+  const [activeTab, setActiveTab] = useState("profile");
   const isSpanish = language === "es";
 
   const profile = isSpanish
@@ -204,6 +206,7 @@ function Personality({ language = "es" }) {
 
   return (
     <section className="section personality-section">
+      {/* ENCABEZADO */}
       <div className="section-heading">
         <span className="section-label">
           {isSpanish
@@ -213,9 +216,7 @@ function Personality({ language = "es" }) {
 
         <h2>
           {isSpanish ? "Mi " : "My "}
-          <span>
-            {isSpanish ? "Personalidad" : "Personality"}
-          </span>
+          <span>{isSpanish ? "Personalidad" : "Personality"}</span>
         </h2>
 
         <p>
@@ -225,156 +226,210 @@ function Personality({ language = "es" }) {
         </p>
       </div>
 
-      {/* PERFIL */}
-      <div className="personality-profile">
-        {profile.map((item, index) => {
-          const Icon = item.icon;
+      {/* CONTENEDOR PRINCIPAL */}
+      <div className="personality-profile-layout">
+        {/* PANEL IZQUIERDO: IMAGEN PERMANENTE */}
+        <motion.div
+          className="personality-image-card"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <img
+            src="/personalidad.png"
+            alt={
+              isSpanish
+                ? "Ilustración sobre la personalidad de Adriana"
+                : "Illustration about Adriana's personality"
+            }
+          />
+        </motion.div>
 
-          return (
-            <motion.article
-              key={item.label}
-              className="personality-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.08,
-              }}
+        {/* PANEL DERECHO: INTERACTIVO DE PESTAÑAS */}
+        <div className="personality-interactive-container">
+          {/* BARRA DE PESTAÑAS */}
+          <div className="personality-tabs">
+            <button
+              className={`tab-btn ${activeTab === "profile" ? "active" : ""}`}
+              onClick={() => setActiveTab("profile")}
             >
-              <div className="personality-icon">
-                <Icon size={21} />
-              </div>
-
-              <div className="personality-card-content">
-                <span>{item.label}</span>
-
-                <h3>{item.value}</h3>
-
-                <p>{item.description}</p>
-              </div>
-            </motion.article>
-          );
-        })}
-      </div>
-
-      {/* SUPERPODERES */}
-      <div className="personality-block">
-        <div className="personality-block-heading">
-          <div className="personality-block-icon">
-            <Sparkles size={20} />
+              {isSpanish ? "01. Perfil" : "01. Profile"}
+            </button>
+            <button
+              className={`tab-btn ${activeTab === "strengths" ? "active" : ""}`}
+              onClick={() => setActiveTab("strengths")}
+            >
+              {isSpanish ? "02. Superpoderes" : "02. Superpowers"}
+            </button>
+            <button
+              className={`tab-btn ${
+                activeTab === "improvements" ? "active" : ""
+              }`}
+              onClick={() => setActiveTab("improvements")}
+            >
+              {isSpanish ? "03. Bugs" : "03. Bugs"}
+            </button>
           </div>
 
-          <div>
-            <span>
-              {isSpanish
-                ? "LO QUE ME HACE ESPECIAL"
-                : "WHAT MAKES ME SPECIAL"}
-            </span>
-
-            <h3>
-              {isSpanish ? "Mis superpoderes" : "My superpowers"}
-            </h3>
-          </div>
-        </div>
-
-        <div className="personality-strengths">
-          {strengths.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <motion.article
-                key={item.title}
-                className="personality-strength"
-                initial={{ opacity: 0, y: 15 }}
+          {/* CONTENIDOS ANIMADOS DE LAS PESTAÑAS */}
+          <AnimatePresence mode="wait">
+            {activeTab === "profile" && (
+              <motion.div
+                key="profile"
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.35,
-                  delay: index * 0.06,
-                }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="tab-content active"
               >
-                <div className="personality-strength-icon">
-                  <Icon size={18} />
+                <div className="personality-profile">
+                  {profile.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <article key={item.label} className="personality-card">
+                        <div className="personality-icon">
+                          <Icon size={20} />
+                        </div>
+                        <div className="personality-card-content">
+                          <span>{item.label}</span>
+                          <h3>{item.value}</h3>
+                          <p>{item.description}</p>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
+              </motion.div>
+            )}
 
-                <div>
-                  <h4>{item.title}</h4>
-                  <p>{item.text}</p>
+            {activeTab === "strengths" && (
+              <motion.div
+                key="strengths"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="tab-content active"
+              >
+                <div className="personality-block">
+                  <div className="personality-block-heading">
+                    <div className="personality-block-icon">
+                      <Sparkles size={20} />
+                    </div>
+                    <div>
+                      <span className="block-subtitle">
+                        {isSpanish
+                          ? "LO QUE ME HACE ESPECIAL"
+                          : "WHAT MAKES ME SPECIAL"}
+                      </span>
+                      <h3 className="block-title">
+                        {isSpanish ? "Mis " : "My "}
+                        <span className="accent-word">
+                          {isSpanish ? "superpoderes" : "superpowers"}
+                        </span>
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="personality-strengths">
+                    {strengths.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <article
+                          key={item.title}
+                          className="personality-strength"
+                        >
+                          <div className="personality-strength-icon">
+                            <Icon size={18} />
+                          </div>
+                          <div>
+                            <h4>{item.title}</h4>
+                            <p>{item.text}</p>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
                 </div>
-              </motion.article>
-            );
-          })}
-        </div>
-      </div>
+              </motion.div>
+            )}
 
-      {/* BUGS */}
-      <div className="personality-block personality-improvements">
-        <div className="personality-block-heading">
-          <div className="personality-block-icon">
-            <Brain size={20} />
-          </div>
+            {activeTab === "improvements" && (
+              <motion.div
+                key="improvements"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="tab-content active"
+              >
+                <div className="personality-block personality-improvements">
+                  <div className="personality-block-heading">
+                    <div className="personality-block-icon">
+                      <Brain size={20} />
+                    </div>
+                    <div>
+                      <span className="block-subtitle">
+                        {isSpanish
+                          ? "ASPECTOS QUE QUIERO MEJORAR"
+                          : "AREAS I WANT TO IMPROVE"}
+                      </span>
+                      <h3 className="block-title">
+                        {isSpanish ? "Mis " : "My "}
+                        <span className="accent-word bugs-accent">
+                          {isSpanish ? '"bugs"' : '"bugs"'}
+                        </span>
+                      </h3>
+                    </div>
+                  </div>
 
-          <div>
-            <span>
+                  <div className="personality-improvements-list">
+                    {improvements.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <article
+                          key={item.title}
+                          className="personality-improvement"
+                        >
+                          <div className="personality-improvement-icon">
+                            <Icon size={17} />
+                          </div>
+                          <div>
+                            <h4>{item.title}</h4>
+                            <p>{item.text}</p>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* MENSAJE FINAL (CIERRE) */}
+          <motion.div
+            className="personality-message"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
+            <Sparkles size={18} />
+            <p>
+              <strong>
+                {isSpanish
+                  ? "Conocerme es mi primer paso."
+                  : "Knowing myself is my first step."}
+              </strong>{" "}
               {isSpanish
-                ? "ASPECTOS QUE QUIERO MEJORAR"
-                : "AREAS I WANT TO IMPROVE"}
-            </span>
-
-            <h3>
-              {isSpanish ? 'Mis "bugs"' : 'My "bugs"'}
-            </h3>
-          </div>
-        </div>
-
-        <div className="personality-improvements-list">
-          {improvements.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <motion.article
-                key={item.title}
-                className="personality-improvement"
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.35,
-                  delay: index * 0.06,
-                }}
-              >
-                <div className="personality-improvement-icon">
-                  <Icon size={17} />
-                </div>
-
-                <div>
-                  <h4>{item.title}</h4>
-                  <p>{item.text}</p>
-                </div>
-              </motion.article>
-            );
-          })}
+                ? "No necesito ser perfecta; necesito reconocer mis fortalezas y trabajar poco a poco en aquello que quiero mejorar."
+                : "I do not need to be perfect; I need to recognize my strengths and gradually work on the things I want to improve."}
+            </p>
+          </motion.div>
         </div>
       </div>
-
-      {/* CIERRE */}
-      <motion.div
-        className="personality-message"
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Sparkles size={20} />
-
-        <p>
-          <strong>
-            {isSpanish
-              ? "Conocerme es mi primer paso."
-              : "Knowing myself is my first step."}
-          </strong>{" "}
-          {isSpanish
-            ? "No necesito ser perfecta; necesito reconocer mis fortalezas y trabajar poco a poco en aquello que quiero mejorar."
-            : "I do not need to be perfect; I need to recognize my strengths and gradually work on the things I want to improve."}
-        </p>
-      </motion.div>
     </section>
   );
 }
